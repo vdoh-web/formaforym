@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VDOH - Feedback</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+    }
+    .header {
+      background: #fff;
+      padding: 16px 24px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header h1 { font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .header p { font-size: 14px; color: #888; }
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+    .form-wrapper iframe {
+      width: 100%;
+      max-width: 720px;
+      height: 2800px;
+      border: none;
+      background: #fff;
+    }
+    .footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 12px;
+      color: #aaa;
+      background: #fff;
+    }
+    @media (max-width: 600px) {
+      .header { padding: 12px 16px; }
+      .header h1 { font-size: 20px; }
+      .form-wrapper iframe { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>VDOH</h1>
+    <p>We'd love your feedback!</p>
+  </div>
+  <div class="form-wrapper">
+    <iframe src="https://forms.yandex.ru/cloud/69e76d6b6d2d73423e08733d/?iframe=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="footer">
+    &copy; 2025 VDOH. All rights reserved.
+  </div>
+</body>
+</html>
