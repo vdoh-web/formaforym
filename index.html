@@ -1,62 +1,175 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VDOH - Feedback</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f5f5f5;
-    }
-    .header {
-      background: #fff;
-      padding: 16px 24px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .header h1 { font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
-    .header p { font-size: 14px; color: #888; }
-    .form-wrapper {
-      display: flex;
-      justify-content: center;
-      padding: 0;
-    }
-    .form-wrapper iframe {
-      width: 100%;
-      max-width: 720px;
-      height: 2800px;
-      border: none;
-      background: #fff;
-    }
-    .footer {
-      text-align: center;
-      padding: 12px;
-      font-size: 12px;
-      color: #aaa;
-      background: #fff;
-    }
-    @media (max-width: 600px) {
-      .header { padding: 12px 16px; }
-      .header h1 { font-size: 20px; }
-      .form-wrapper iframe { max-width: 100%; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VDOH - Feedback</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F5F0EB;
+            min-height: 100vh;
+        }
+        .hero {
+            background: linear-gradient(135deg, #8B1A1A 0%, #6B1414 50%, #4A0E0E 100%);
+            color: #fff;
+            padding: 48px 24px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 200px; height: 200px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; left: -30px;
+            width: 150px; height: 150px;
+            border: 2px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .hero-logo {
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: 12px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .hero-subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.85;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .hero-desc {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .ornament {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .ornament span {
+            width: 6px; height: 6px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+        }
+        .ornament span:nth-child(2) {
+            width: 24px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.6);
+        }
+        .form-section {
+            max-width: 720px;
+            margin: -20px auto 40px;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .form-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .form-card iframe {
+            width: 100%;
+            min-height: 1200px;
+            border: none;
+            display: block;
+        }
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #8B1A1A;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+        .footer a {
+            color: #8B1A1A;
+            text-decoration: none;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            margin-top: 24px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: 800;
+        }
+        .stat-label {
+            font-size: 11px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 600px) {
+            .hero { padding: 32px 16px 28px; }
+            .hero-logo { font-size: 40px; letter-spacing: 8px; }
+            .hero-desc { font-size: 15px; }
+            .stats-bar { gap: 20px; }
+            .stat-number { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <h1>VDOH</h1>
-    <p>We'd love your feedback!</p>
-  </div>
-  <div class="form-wrapper">
-    <iframe src="https://forms.yandex.ru/cloud/69e76d6b6d2d73423e08733d/?iframe=1" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="footer">
-    &copy; 2025 VDOH. All rights reserved.
-  </div>
+    <div class="hero">
+        <div class="hero-logo">VDOH</div>
+        <div class="hero-subtitle">festival of communities</div>
+        <div class="hero-desc">We value your feedback! Help us make the next festival even better.</div>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">3000+</div>
+                <div class="stat-label">participants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">communities</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">speakers</div>
+            </div>
+        </div>
+        <div class="ornament">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="form-section">
+        <div class="form-card">
+            <iframe src="https://forms.yandex.ru/cloud/69e76d6b6d2d73423e08733d/?iframe=1" frameborder="0"></iframe>
+        </div>
+    </div>
+    <div class="footer">
+        VDOH &copy; 2026 | <a href="https://vdohfest.ru" target="_blank">vdohfest.ru</a>
+    </div>
 </body>
 </html>
